@@ -1,9 +1,15 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { useState } from "react";
 import "./App.css";
+import Input from "./components/Input";
+import Button from "./components/Button";
+import Login from "./pages/Login";
 
 function App() {
-  return <h1 className="text-9xl font-bold">Hello world!</h1>;
+  return (
+    <div className=" bg-dark flex items-center justify-center min-h-screen ">
+      <Login />
+    </div>
+  );
 }
 
 export default App;
