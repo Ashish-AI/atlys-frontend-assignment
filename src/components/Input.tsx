@@ -31,7 +31,7 @@ const Input: React.FC<InputProps> = ({
         type={type}
         onChange={onChange}
         value={value}
-        className="w-full px-3 py-3 text-silver bg-darkA border border-charcoal rounded-lg focus:outline-none focus:border-white focus:ring-0"
+        className="w-full px-3 py-3  bg-darkA border border-charcoal rounded-lg focus:outline-none focus:border-white focus:ring-0 text-white"
         placeholder={placeholder}
       />
     </div>
