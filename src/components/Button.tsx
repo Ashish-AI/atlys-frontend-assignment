@@ -4,30 +4,46 @@ const Button = ({
   variant = "fullWidth",
   label,
   onClick,
+  state = "active",
 }: {
   variant?: "fullWidth" | "autoWidth";
   label: string;
   onClick: () => void;
+  state?: "loading" | "active" | "disabled";
 }) => {
-  const baseStyles = "py-2 px-4 rounded-md text-white bg-blue hover:bg-blueA";
+  // Base styles for the button
+  const baseStyles =
+    "py-2 px-4 rounded-md text-white flex items-center justify-center ";
 
+  // Conditional styles based on variant
   const variantStyles = {
-    fullWidth: "w-full ",
+    fullWidth: "w-full",
     autoWidth: "w-auto",
   };
 
+  // Conditional styles based on state
+  const stateStyles = {
+    loading: "bg-blueA cursor-wait",
+    disabled: "bg-lightGray cursor-not-allowed",
+    active: "bg-blue hover:bg-blueA",
+  };
+
+  // Decide the final button styles based on the variant and state
+  const buttonStyles = `${baseStyles} ${variantStyles[variant]} ${stateStyles[state]}`;
+
   return (
-    // 	<button
-    // 	type="submit"
-    // 	className="w-full px-4 py-2 font-bold text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-500"
-    // >
-    // 	Login now
-    // </button>
     <button
-      onClick={onClick}
-      className={`${baseStyles} ${variantStyles[variant]}}`}
+      onClick={
+        state === "loading" || state === "disabled" ? undefined : onClick
+      }
+      className={buttonStyles}
+      disabled={state === "disabled"}
     >
-      {label}
+      {state === "loading" ? (
+        <div className="w-6 h-6 border-2 border-white border-t-transparent border-solid rounded-full animate-spin"></div>
+      ) : (
+        label
+      )}
     </button>
   );
 };

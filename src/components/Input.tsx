@@ -7,6 +7,7 @@ interface InputProps {
   trailingText: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onTrailingTextPressed?: () => void;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -14,6 +15,7 @@ const Input: React.FC<InputProps> = ({
   placeholder,
   label,
   trailingText,
+  onTrailingTextPressed,
   value,
   onChange,
 }) => {
@@ -21,7 +23,7 @@ const Input: React.FC<InputProps> = ({
     <div>
       <div className="flex justify-between align-middle mb-2.5">
         <label className="text-sm font-medium text-lightGray  ">{label}</label>
-        <label className="text-xs font-medium text-lightGray text-center">
+        <label className="text-xs font-medium text-lightGray text-center hover:underline cursor-pointer">
           {trailingText}
         </label>
       </div>
@@ -29,7 +31,7 @@ const Input: React.FC<InputProps> = ({
         type={type}
         onChange={onChange}
         value={value}
-        className="w-full px-3 py-3 text-silver bg-darkA  border border-charcoal rounded-lg focus:outline-none focus:ring focus:ring-blue-500"
+        className="w-full px-3 py-3 text-silver bg-darkA border border-charcoal rounded-lg focus:outline-none focus:border-white focus:ring-0"
         placeholder={placeholder}
       />
     </div>

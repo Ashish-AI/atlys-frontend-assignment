@@ -3,22 +3,6 @@ import React, { useState } from "react";
 import Input from "../components/Input";
 import Button from "../components/Button";
 
-{
-  /* <svg
-className="w-6 h-6 text-gray-400"
-fill="none"
-viewBox="0 0 24 24"
-stroke="currentColor"
->
-<path
-	strokeLinecap="round"
-	strokeLinejoin="round"
-	strokeWidth="2"
-	d="M10 9v6m4-6v6m-4-6H8a4 4 0 01-4-4V5a4 4 0 014-4h4a4 4 0 014 4v4a4 4 0 01-4 4h-2z"
-/>
-</svg> */
-}
-
 const Login = () => {
   const [value, setValue] = useState<{ userId: string; password: string }>({
     userId: "",
@@ -50,6 +34,9 @@ const Login = () => {
         <Input
           label="Password"
           trailingText="Forgot password?"
+          onTrailingTextPressed={() => {
+            console.log("Coming soon");
+          }}
           onChange={(e) => {
             setValue((prev) => ({ ...prev, password: e.target.value }));
           }}
@@ -62,9 +49,9 @@ const Login = () => {
           <Button label="Login now" onClick={() => {}} />
         </div>
         <div className="mt-3">
-          <a href="#" className="text-sm text-gray-400 hover:underline">
+          <a href={"/"} className="text-sm text-silver hover:underline">
             Not registered yet?{" "}
-            <span className="text-blue-400">Register →</span>
+            <span className="text-lightGray">Register →</span>
           </a>
         </div>
       </form>
