@@ -1,5 +1,7 @@
 import React from "react";
 
+export type ButtonState = "loading" | "active" | "disabled";
+
 const Button = ({
   variant = "fullWidth",
   label,
@@ -9,7 +11,7 @@ const Button = ({
   variant?: "fullWidth" | "autoWidth";
   label: string;
   onClick: () => void;
-  state?: "loading" | "active" | "disabled";
+  state?: ButtonState;
 }) => {
   // Base styles for the button
   const baseStyles =

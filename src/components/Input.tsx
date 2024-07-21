@@ -4,7 +4,7 @@ interface InputProps {
   type?: React.HTMLInputTypeAttribute;
   placeholder?: string;
   label: string;
-  trailingText: string;
+  trailingText?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onTrailingTextPressed?: () => void;

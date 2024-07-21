@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
-import Input from "./components/Input";
-import Button from "./components/Button";
+
 import Login from "./pages/Login";
+import SignUp from "./pages/Signup";
 
 function App() {
   return (
     <div className=" bg-dark flex items-center justify-center min-h-screen ">
       <Login />
+      {/* <SignUp /> */}
     </div>
   );
 }

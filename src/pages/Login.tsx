@@ -1,15 +1,26 @@
 // src/components/Login.js
 import React, { useState } from "react";
 import Input from "../components/Input";
-import Button from "../components/Button";
+import Button, { ButtonState } from "../components/Button";
 
 import LoginShape from "../assets/images/login-shape.svg";
+import { isNil } from "../utils/helpers";
 
 const Login = () => {
-  const [value, setValue] = useState<{ userId: string; password: string }>({
-    userId: "",
-    password: "",
+  const [value, setValue] = useState<{
+    userId: string | undefined;
+    password: string | undefined;
+  }>({
+    userId: undefined,
+    password: undefined,
   });
+
+  const getButtonState = (): ButtonState => {
+    if (isNil(value.userId?.trim()) || isNil(value.password?.trim())) {
+      return "disabled";
+    }
+    return "active";
+  };
 
   return (
     <div className="w-full max-w-lg mx-auto">
@@ -27,7 +38,6 @@ const Login = () => {
           <div className="mb-4">
             <Input
               label="Email or Username"
-              trailingText=""
               onChange={(e) => {
                 setValue((prev) => ({ ...prev, userId: e.target.value }));
               }}
@@ -52,7 +62,11 @@ const Login = () => {
           />
 
           <div className="mt-5">
-            <Button label="Login now" onClick={() => {}} />
+            <Button
+              label="Login now"
+              onClick={() => {}}
+              state={getButtonState()}
+            />
           </div>
           <div className="mt-3">
             <a href={"/"} className="text-sm text-silver hover:underline">
