@@ -1,4 +1,3 @@
-// src/components/Login.js
 import React, { useState } from "react";
 import Input from "../components/Input";
 import Button, { ButtonState } from "../components/Button";
@@ -49,8 +48,8 @@ const Login = () => {
 
           <Input
             label="Password"
-            trailingText="Forgot password?"
-            onTrailingTextPressed={() => {
+            trailingLabel="Forgot password?"
+            onTrailingLabelPressed={() => {
               console.log("Coming soon");
             }}
             onChange={(e) => {

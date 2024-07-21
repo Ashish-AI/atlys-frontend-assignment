@@ -1,6 +1,4 @@
-import React from "react";
 import { AddPost } from "../components/AddPost";
-
 import { Post } from "../components/Post";
 import { dummyData } from "../utils/mock";
 
