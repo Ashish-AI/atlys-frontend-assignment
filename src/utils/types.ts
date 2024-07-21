@@ -3,6 +3,7 @@ export type CommentsData = {
   name: string;
   comment: string;
   profilePicture: string;
+  dateAndTime: string;
 };
 
 export type PostData = {

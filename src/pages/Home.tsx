@@ -12,9 +12,7 @@ const Home = () => {
       <div className="max-w-2xl mx-auto">
         <h1 className="font-medium text-lightGray text-3xl mb-3">Hello Jane</h1>
         <p className="mb-4 font-normal text-base text-silver">{dailyMessage}</p>
-
         <AddPost />
-
         {postData.map((item, index) => (
           <Post data={item} key={index} />
         ))}

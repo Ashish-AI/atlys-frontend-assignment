@@ -2,7 +2,8 @@ import { HomeData } from "./types";
 
 export const dummyData: HomeData = {
   userName: "John Doe",
-  dailyMessage: "Good morning! Here’s what’s new today:",
+  dailyMessage:
+    "How are you doing today? Would you like to share something with the community 🤗",
   postData: [
     {
       id: "post1",
@@ -10,9 +11,10 @@ export const dummyData: HomeData = {
       isEdited: false,
       profilePicture:
         "https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg",
-      dateAndTime: "2024-07-20T10:00:00Z",
+      dateAndTime: "2024-07-21T14:55:00Z",
       moodIcon: "😊",
-      content: "Just had a great breakfast at the new cafe in town!",
+      content:
+        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
       commentsCount: 3,
       comments: [
         {
@@ -21,6 +23,7 @@ export const dummyData: HomeData = {
           comment: "Looks delicious!",
           profilePicture:
             "https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg",
+          dateAndTime: "2024-07-20T10:05:00Z",
         },
         {
           id: "comment2",
@@ -28,6 +31,7 @@ export const dummyData: HomeData = {
           comment: "I need to try this place!",
           profilePicture:
             "https://images.pexels.com/photos/1547971/pexels-photo-1547971.jpeg",
+          dateAndTime: "2024-07-20T10:15:00Z",
         },
         {
           id: "comment3",
@@ -35,6 +39,7 @@ export const dummyData: HomeData = {
           comment: "What did you have?",
           profilePicture:
             "https://images.pexels.com/photos/1462980/pexels-photo-1462980.jpeg",
+          dateAndTime: "2024-07-20T10:25:00Z",
         },
       ],
     },
@@ -46,7 +51,8 @@ export const dummyData: HomeData = {
         "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg",
       dateAndTime: "2024-07-20T12:30:00Z",
       moodIcon: "😎",
-      content: "Excited for the weekend getaway! 🚗🌄",
+      content:
+        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
       commentsCount: 2,
       comments: [
         {
@@ -55,6 +61,7 @@ export const dummyData: HomeData = {
           comment: "Have a great trip!",
           profilePicture:
             "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg",
+          dateAndTime: "2024-07-20T12:35:00Z",
         },
         {
           id: "comment5",
@@ -62,6 +69,7 @@ export const dummyData: HomeData = {
           comment: "Where are you going?",
           profilePicture:
             "https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg",
+          dateAndTime: "2024-07-20T12:40:00Z",
         },
       ],
     },
@@ -82,6 +90,7 @@ export const dummyData: HomeData = {
           comment: "Amazing artwork!",
           profilePicture:
             "https://images.pexels.com/photos/1547971/pexels-photo-1547971.jpeg",
+          dateAndTime: "2024-07-20T15:50:00Z",
         },
         {
           id: "comment7",
@@ -89,6 +98,7 @@ export const dummyData: HomeData = {
           comment: "I love the colors!",
           profilePicture:
             "https://images.pexels.com/photos/633432/pexels-photo-633432.jpeg",
+          dateAndTime: "2024-07-20T15:55:00Z",
         },
         {
           id: "comment8",
@@ -96,6 +106,7 @@ export const dummyData: HomeData = {
           comment: "So talented!",
           profilePicture:
             "https://images.pexels.com/photos/1462980/pexels-photo-1462980.jpeg",
+          dateAndTime: "2024-07-20T16:00:00Z",
         },
         {
           id: "comment9",
@@ -103,6 +114,7 @@ export const dummyData: HomeData = {
           comment: "Beautiful piece!",
           profilePicture:
             "https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg",
+          dateAndTime: "2024-07-20T16:05:00Z",
         },
       ],
     },
