@@ -5,7 +5,7 @@ import Input from "./Input";
 import localStorageUtil from "../utils/localStorage";
 import { useNavigate } from "react-router-dom";
 import { useModal } from "../Contexts/ModalContext";
-import SignUp from "../pages/Signup";
+import { SignUp } from "./SignUp";
 
 export const Login = ({ isModal }: { isModal?: boolean }) => {
   const [value, setValue] = useState<{

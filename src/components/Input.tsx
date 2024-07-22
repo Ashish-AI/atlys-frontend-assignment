@@ -66,8 +66,8 @@ const Input: React.FC<InputProps> = ({
             trailingElement ? "pr-12 py-6" : "pr-3"
           } ${
             mode === "dark"
-              ? "bg-darker border-darker text-light"
-              : "bg-darkA border-charcoal text-light"
+              ? "bg-darker border-darker text-white"
+              : "bg-darkA border-charcoal text-white"
           } border rounded-lg focus:outline-none focus:border-white focus:ring-0`}
           placeholder={placeholder}
         />

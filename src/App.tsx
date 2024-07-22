@@ -1,8 +1,6 @@
 import React from "react";
 import "./App.css";
-import Login from "./pages/LoginWrapper";
 import Home from "./pages/Home";
-import Signup from "./pages/Signup";
 import {
   BrowserRouter as Router,
   Route,
@@ -10,6 +8,8 @@ import {
   Navigate,
 } from "react-router-dom";
 import { ModalProvider } from "./Contexts/ModalContext";
+import SignUpWrapper from "./pages/SignUpWrapper";
+import LoginWrapper from "./pages/LoginWrapper";
 
 function App() {
   return (
@@ -18,8 +18,8 @@ function App() {
         <ModalProvider>
           <Routes>
             <Route path="/" element={<Navigate to="/home" />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<LoginWrapper />} />
+            <Route path="/signup" element={<SignUpWrapper />} />
             <Route path="/home" element={<Home />} />
           </Routes>
         </ModalProvider>
