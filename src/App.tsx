@@ -1,12 +1,7 @@
 import React from "react";
 import "./App.css";
 import Home from "./pages/Home";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ModalProvider } from "./Contexts/ModalContext";
 import SignUpWrapper from "./pages/SignUpWrapper";
 import LoginWrapper from "./pages/LoginWrapper";
