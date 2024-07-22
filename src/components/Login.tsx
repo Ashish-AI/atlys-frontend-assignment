@@ -19,8 +19,9 @@ export const Login = ({ isModal }: { isModal?: boolean }) => {
   const [error, setError] = useState<string | undefined>("");
 
   const navigate = useNavigate();
-  const userData = localStorageUtil.getItem("user-data");
   const { showModal } = useModal();
+
+  const userData = localStorageUtil.getItem("user-data");
 
   const getButtonState = (): ButtonState => {
     if (isNil(value.userId?.trim()) || isNil(value.password?.trim())) {
@@ -51,7 +52,7 @@ export const Login = ({ isModal }: { isModal?: boolean }) => {
 
   const handleClick = () => {
     if (isModal) {
-      showModal(<SignUp />);
+      showModal(<SignUp isModal={isModal} />);
     } else {
       navigate("/signup");
     }

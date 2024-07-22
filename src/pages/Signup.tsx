@@ -3,8 +3,14 @@ import Input from "../components/Input";
 import Button, { ButtonState } from "../components/Button";
 import { isNil } from "../utils/helpers";
 import localStorageUtil from "../utils/localStorage";
+import Login from "../components/Login";
+import { useNavigate } from "react-router-dom";
+import { useModal } from "../Contexts/ModalContext";
 
-const SignUp = () => {
+const SignUp = ({ isModal }: { isModal?: boolean }) => {
+  const navigate = useNavigate();
+  const { showModal } = useModal();
+
   const [value, setValue] = useState<{
     email: string;
     userId: string;
@@ -42,6 +48,14 @@ const SignUp = () => {
     }
     localStorageUtil.setItem("user-data", value);
     setError("");
+  };
+
+  const handleClick = () => {
+    if (isModal) {
+      showModal(<Login />);
+    } else {
+      navigate("/signup");
+    }
   };
 
   return (
@@ -94,10 +108,13 @@ const SignUp = () => {
             <Button label="Continue" type="submit" state={getButtonState()} />
           </div>
           <div className="mt-3">
-            <a href={"/login"} className="text-sm text-silver hover:underline">
+            <div
+              onClick={() => handleClick()}
+              className="text-sm text-silver hover:underline"
+            >
               Already have an account?{" "}
               <span className="text-lightGray">Login →</span>
-            </a>
+            </div>
           </div>
         </form>
       </div>

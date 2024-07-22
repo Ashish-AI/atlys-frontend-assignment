@@ -7,6 +7,7 @@ import { isNil } from "../utils/helpers";
 import { emoticons } from "../utils/mock";
 import { useModal } from "../Contexts/ModalContext";
 import { Login } from "./Login";
+import SignUp from "../pages/Signup";
 
 export const AddPost = ({
   setHomePostData,
@@ -53,7 +54,7 @@ export const AddPost = ({
         ...prev,
       ]);
     } else {
-      showModal(<Login isModal={true} />);
+      showModal(<SignUp isModal={true} />);
     }
   };
 
