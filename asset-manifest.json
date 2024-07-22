@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/atlys-frontend-assignment/static/css/main.a7ebad26.css",
+    "main.js": "/atlys-frontend-assignment/static/js/main.915095dd.js",
+    "static/js/453.19e6dfd9.chunk.js": "/atlys-frontend-assignment/static/js/453.19e6dfd9.chunk.js",
+    "static/media/login-shape.svg": "/atlys-frontend-assignment/static/media/login-shape.3eca912a51971c22133753b200b9e7e7.svg",
+    "static/media/eye.svg": "/atlys-frontend-assignment/static/media/eye.30cafda1d8cf86ffa2be1023d40e8709.svg",
+    "static/media/chat-bubble.svg": "/atlys-frontend-assignment/static/media/chat-bubble.745e8cb4a99cdc3f531ce6287df4fadc.svg",
+    "index.html": "/atlys-frontend-assignment/index.html",
+    "static/media/close-button.svg": "/atlys-frontend-assignment/static/media/close-button.1a513be6f68b57d7dead41e755796b37.svg",
+    "static/media/horizontal-ellipsis.svg": "/atlys-frontend-assignment/static/media/horizontal-ellipsis.fba6de1c306888d9135a97648f926b43.svg",
+    "main.a7ebad26.css.map": "/atlys-frontend-assignment/static/css/main.a7ebad26.css.map",
+    "main.915095dd.js.map": "/atlys-frontend-assignment/static/js/main.915095dd.js.map",
+    "453.19e6dfd9.chunk.js.map": "/atlys-frontend-assignment/static/js/453.19e6dfd9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a7ebad26.css",
+    "static/js/main.915095dd.js"
+  ]
+}
