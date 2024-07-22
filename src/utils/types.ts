@@ -14,8 +14,8 @@ export type PostData = {
   dateAndTime: string;
   moodIcon: string;
   content: string;
-  commentsCount: number;
-  comments: Array<CommentsData>;
+  commentsCount?: number;
+  comments?: Array<CommentsData>;
 };
 
 export type HomeData = {

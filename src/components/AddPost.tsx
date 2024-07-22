@@ -1,33 +1,61 @@
 import { useState } from "react";
-import Button from "./Button";
+import Button, { ButtonState } from "./Button";
 import Input from "./Input";
-import { SendPostData } from "../utils/types";
+import { PostData } from "../utils/types";
+import localStorageUtil from "../utils/localStorage";
+import { isNil } from "../utils/helpers";
+import { emoticons } from "../utils/mock";
 
-export const AddPost = () => {
+export const AddPost = ({
+  setHomePostData,
+}: {
+  setHomePostData: React.Dispatch<React.SetStateAction<PostData[]>>;
+}) => {
   const [showEmoticons, setShowEmoticons] = useState(false);
-  const emoticons = ["😊", "😂", "❤️", "🙌", "🎉"]; // List of emoticons
-  const [selectedEmoticon, setSelectedEmoticon] = useState<string>("💬");
+  const userData = localStorageUtil.getItem("user-data");
 
-  const [postData, setPostData] = useState<SendPostData | undefined>({
-    id: "",
-    name: "",
-    profilePicture: "",
-    dateAndTime: "",
-    moodIcon: "",
-    content: "",
-  });
+  const [postData, setPostData] = useState<{
+    selectedEmoticon: string;
+    content: string;
+  }>({ selectedEmoticon: "💬", content: "" });
 
   const leadingElement = (
     <div>
       <div className="bg-darkA h-12 w-12 rounded-full flex items-center justify-center shrink-0">
-        {selectedEmoticon}
+        {postData.selectedEmoticon}
       </div>
     </div>
   );
 
   const handleEmoticonClick = (emoticon: string) => {
-    setSelectedEmoticon(emoticon);
+    setPostData((prev) => ({ ...prev, selectedEmoticon: emoticon }));
     setShowEmoticons(false);
+  };
+
+  const handleOnPress = () => {
+    if (userData) {
+      setHomePostData((prev) => [
+        ...prev,
+        {
+          id: "post" + (prev.length + 1).toString(),
+          name: userData?.name,
+          isEdited: false,
+          profilePicture: userData?.profilePicture,
+          dateAndTime: new Date().toString(),
+          moodIcon: postData.selectedEmoticon,
+          content: postData?.content,
+        },
+      ]);
+    } else {
+      // Show Login Modal }
+    }
+  };
+
+  const getButtonState = (): ButtonState => {
+    if (!isNil(postData.content)) {
+      return "active";
+    }
+    return "disabled";
   };
 
   return (
@@ -41,6 +69,9 @@ export const AddPost = () => {
             type="text"
             leadingElement={leadingElement}
             mode="dark"
+            onChange={(e) => {
+              setPostData((prev) => ({ ...prev, content: e.target.value }));
+            }}
             onLeadingElementPressed={() => {
               setShowEmoticons((prev) => !prev);
             }}
@@ -63,7 +94,12 @@ export const AddPost = () => {
         </div>
       </div>
       <div className="flex justify-end items-center mt-4">
-        <Button label="Post" onClick={() => {}} variant="autoWidth" />
+        <Button
+          label="Post"
+          onClick={() => handleOnPress()}
+          variant="autoWidth"
+          state={getButtonState()}
+        />
       </div>
     </div>
   );

@@ -22,7 +22,7 @@ export const Post = ({ data }: { data: PostData }) => {
 
   const handleViewMore = () => {
     setVisibleComments((prevVisibleComments) =>
-      Math.min(prevVisibleComments + 3, commentsCount)
+      Math.min(prevVisibleComments + 3, commentsCount ?? 0)
     );
   };
 
@@ -32,7 +32,7 @@ export const Post = ({ data }: { data: PostData }) => {
   };
 
   // Function to format comments into a displayable list
-  const displayComments = comments.slice(0, visibleComments);
+  const displayComments = comments?.slice(0, visibleComments);
 
   return (
     <div className="bg-darkA border-2 rounded-lg py-6 px-5 border-gray mt-10">
@@ -67,17 +67,17 @@ export const Post = ({ data }: { data: PostData }) => {
           className="font-medium text-sm text-silver"
           onClick={handleToggleComments}
         >
-          {commentsCount} comments
+          {commentsCount ?? 0} comments
         </p>
       </div>
 
       {areCommentsVisible && (
         <div className="mt-3">
-          {displayComments.map((comment) => (
+          {displayComments?.map((comment) => (
             <Comments comment={comment} key={comment.id} />
           ))}
 
-          {visibleComments < commentsCount && (
+          {visibleComments < (commentsCount ?? 0) && (
             <button
               onClick={handleViewMore}
               className="text-blue-500 font-normal mt-2 underline text-sm"
