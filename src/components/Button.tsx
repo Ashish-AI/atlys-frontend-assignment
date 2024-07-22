@@ -7,11 +7,13 @@ const Button = ({
   label,
   onClick,
   state = "active",
+  type,
 }: {
   variant?: "fullWidth" | "autoWidth";
   label: string;
-  onClick: () => void;
+  onClick?: () => void;
   state?: ButtonState;
+  type?: "submit" | "reset" | "button" | undefined;
 }) => {
   // Base styles for the button
   const baseStyles =
@@ -40,6 +42,7 @@ const Button = ({
       }
       className={buttonStyles}
       disabled={state === "disabled"}
+      type={type}
     >
       {state === "loading" ? (
         <div className="w-6 h-6 border-2 border-white border-t-transparent border-solid rounded-full animate-spin"></div>
