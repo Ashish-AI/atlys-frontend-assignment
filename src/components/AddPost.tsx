@@ -5,6 +5,8 @@ import { PostData } from "../utils/types";
 import localStorageUtil from "../utils/localStorage";
 import { isNil } from "../utils/helpers";
 import { emoticons } from "../utils/mock";
+import { useModal } from "../Contexts/ModalContext";
+import { Login } from "./Login";
 
 export const AddPost = ({
   setHomePostData,
@@ -18,6 +20,8 @@ export const AddPost = ({
     selectedEmoticon: string;
     content: string;
   }>({ selectedEmoticon: "💬", content: "" });
+
+  const { showModal } = useModal();
 
   const leadingElement = (
     <div>
@@ -47,7 +51,7 @@ export const AddPost = ({
         },
       ]);
     } else {
-      // Show Login Modal }
+      showModal(<Login />);
     }
   };
 
@@ -59,11 +63,14 @@ export const AddPost = ({
   };
 
   return (
-    <div className="bg-darkA border-2 rounded-lg py-10 px-6 border-gray mt-10 relative">
+    <div
+      className={
+        "bg-darkA border-2 rounded-lg py-10 px-6 border-gray mt-10 relative"
+      }
+    >
       <h1 className="mb-4">Create post</h1>
       <div className="flex items-center mb-2">
         <div className="w-full relative">
-          {" "}
           <Input
             placeholder="How are you feeling today?"
             type="text"

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { PostData } from "../utils/types";
 import CommentBubble from "../assets/images/chat-bubble.svg";
-import HorizontalEllipsis from "../assets/images/ horizontal-ellipsis.svg";
+import HorizontalEllipsis from "../assets/images/horizontal-ellipsis.svg";
 import { formatTimeAgo } from "../utils/helpers";
 import { Comments } from "./Comments";
 
