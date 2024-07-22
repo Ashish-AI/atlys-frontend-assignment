@@ -67,7 +67,7 @@ const Input: React.FC<InputProps> = ({
           } ${
             mode === "dark"
               ? "bg-darker border-darker text-light"
-              : "bg-light border-grey text-dark"
+              : "bg-darkA border-charcoal text-light"
           } border rounded-lg focus:outline-none focus:border-white focus:ring-0`}
           placeholder={placeholder}
         />

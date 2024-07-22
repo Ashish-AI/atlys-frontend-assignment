@@ -16,7 +16,7 @@ export const Login = () => {
 
   const [error, setError] = useState<string | undefined>("");
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const userData = localStorageUtil.getItem("user-data");
 
   const getButtonState = (): ButtonState => {
@@ -40,14 +40,14 @@ export const Login = () => {
       userData.password === value.password
     ) {
       setError("");
-      navigate("/home");
+      // navigate("/home");
     } else {
       setError("Invalid user ID or password.");
     }
   };
 
   return (
-    <div className="bg-darkA border-2 rounded-lg py-10 px-6 border-gray max-w-lg mx-auto mt-12">
+    <div className="bg-darkA border-2 rounded-lg py-10 px-6 border-gray w-full max-w-lg mx-auto mt-12">
       <h2 className="text-medium text-mediumGray text-sm/4 text-center">
         WELCOME BACK
       </h2>

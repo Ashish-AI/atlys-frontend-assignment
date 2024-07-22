@@ -17,7 +17,18 @@ export const ModalProvider: React.FC<{ children: ReactNode }> = ({
   const [modalContent, setModalContent] = useState<ReactNode>(null);
 
   const showModal = (content: ReactNode) => {
-    setModalContent(content);
+    setModalContent(
+      <div className="relative rounded-lg shadow-lg w-full max-w-lg mx-auto">
+        {content}
+        <img
+          src={CloseButton}
+          alt="close icon"
+          className="absolute  text-gray-500 cursor-pointer"
+          style={{ top: "60px", right: "10px" }}
+          onClick={hideModal}
+        />
+      </div>
+    );
     setIsModalOpen(true);
   };
 
@@ -32,21 +43,9 @@ export const ModalProvider: React.FC<{ children: ReactNode }> = ({
     >
       {children}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-dark bg-opacity-70 flex items-center justify-center z-50 max-w-lg">
-          <div
-            className="fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center"
-            aria-hidden="true"
-          >
-            <div className="rounded-lg shadow-lg w-auto mx-auto relative">
-              <img
-                src={CloseButton}
-                alt="close icon"
-                className="absolute top-2 right-2 text-gray-500  curs"
-                onClick={hideModal}
-              />
-
-              {modalContent}
-            </div>
+        <div className="fixed inset-0 bg-dark bg-opacity-70 flex items-center justify-center z-50">
+          <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center w-full h-full">
+            {modalContent}
           </div>
         </div>
       )}

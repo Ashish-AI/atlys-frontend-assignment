@@ -14,16 +14,16 @@ import { ModalProvider } from "./Contexts/ModalContext";
 function App() {
   return (
     <ModalProvider>
-      <Router>
-        <div className="bg-dark flex items-center justify-center min-h-screen">
+      <div className="bg-dark flex items-center justify-center min-h-screen">
+        <Router>
           <Routes>
             <Route path="/" element={<Navigate to="/home" />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/home" element={<Home />} />
           </Routes>
-        </div>
-      </Router>
+        </Router>
+      </div>
     </ModalProvider>
   );
 }
