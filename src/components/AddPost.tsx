@@ -38,17 +38,19 @@ export const AddPost = ({
 
   const handleOnPress = () => {
     if (userData) {
+      setPostData({ content: "", selectedEmoticon: "💬" });
       setHomePostData((prev) => [
-        ...prev,
         {
           id: "post" + (prev.length + 1).toString(),
           name: userData?.name,
           isEdited: false,
-          profilePicture: userData?.profilePicture,
+          profilePicture:
+            "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg",
           dateAndTime: new Date().toString(),
           moodIcon: postData.selectedEmoticon,
           content: postData?.content,
         },
+        ...prev,
       ]);
     } else {
       showModal(<Login />);
@@ -76,6 +78,7 @@ export const AddPost = ({
             type="text"
             leadingElement={leadingElement}
             mode="dark"
+            value={postData?.content}
             onChange={(e) => {
               setPostData((prev) => ({ ...prev, content: e.target.value }));
             }}

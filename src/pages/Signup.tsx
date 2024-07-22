@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Input from "../components/Input";
 import Button, { ButtonState } from "../components/Button";
 import { isNil } from "../utils/helpers";
+import localStorageUtil from "../utils/localStorage";
 
 const SignUp = () => {
   const [value, setValue] = useState<{
@@ -14,10 +15,10 @@ const SignUp = () => {
     password: "",
   });
 
-  const [error, setError] = useState<string>("");
+  const [error, setError] = useState<string | undefined>("");
 
   const getButtonState = (): ButtonState => {
-    if (isNil(error)) {
+    if (isNil(value.email) || isNil(value.password) || isNil(value.userId)) {
       return "disabled";
     }
     return "active";
@@ -35,8 +36,12 @@ const SignUp = () => {
       setError("Password must be at least 6 characters long.");
       return;
     }
+    // Valid case
+    if (localStorageUtil.getItem("user-data") !== null) {
+      localStorageUtil.removeItem("user-data");
+    }
+    localStorageUtil.setItem("user-data", value);
     setError("");
-    console.log("Form submitted successfully!");
   };
 
   return (
