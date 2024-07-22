@@ -36,7 +36,6 @@ export const AddPost = () => {
       <div className="flex items-center mb-2">
         <div className="w-full relative">
           {" "}
-          {/* Add relative here */}
           <Input
             placeholder="How are you feeling today?"
             type="text"
