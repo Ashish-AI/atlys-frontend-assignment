@@ -63,7 +63,7 @@ const Input: React.FC<InputProps> = ({
           onChange={onChange}
           value={value}
           className={`w-full py-3 ${leadingElement ? "pl-20 py-6" : "pl-3"} ${
-            trailingElement ? "pr-12 py-6" : "pr-3"
+            trailingElement ? "pr-12" : "pr-3"
           } ${
             mode === "dark"
               ? "bg-darker border-darker text-white"

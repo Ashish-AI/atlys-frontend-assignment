@@ -6,6 +6,7 @@ import localStorageUtil from "../utils/localStorage";
 import Button, { ButtonState } from "./Button";
 import Input from "./Input";
 import Login from "./Login";
+import Eye from "../assets/images/eye.svg";
 
 export const SignUp = ({ isModal }: { isModal?: boolean }) => {
   const [value, setValue] = useState<{
@@ -22,9 +23,16 @@ export const SignUp = ({ isModal }: { isModal?: boolean }) => {
   const { showModal } = useModal();
 
   const [error, setError] = useState<string | undefined>("");
+  const [inputType, setInputType] =
+    useState<React.HTMLInputTypeAttribute>("password");
 
   const getButtonState = (): ButtonState => {
-    if (isNil(value.email) || isNil(value.password) || isNil(value.userId)) {
+    if (
+      isNil(value.email) ||
+      isNil(value.password) ||
+      isNil(value.userId) ||
+      (value.password && value.password?.length < 6)
+    ) {
       return "disabled";
     }
     return "active";
@@ -96,8 +104,16 @@ export const SignUp = ({ isModal }: { isModal?: boolean }) => {
               setValue((prev) => ({ ...prev, password: e.target.value }));
             }}
             placeholder="Choose a strong password"
-            type="password"
+            type={inputType}
             value={value.password}
+            trailingElement={<img src={Eye} alt="comments" className="mr-1" />}
+            onTrailingElementPressed={() => {
+              setInputType((prev) => {
+                if (prev === "text") {
+                  return "password";
+                } else return "text";
+              });
+            }}
           />
         </div>
         {error && (

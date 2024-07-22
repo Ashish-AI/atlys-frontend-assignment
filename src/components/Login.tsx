@@ -6,6 +6,7 @@ import localStorageUtil from "../utils/localStorage";
 import { useNavigate } from "react-router-dom";
 import { useModal } from "../Contexts/ModalContext";
 import { SignUp } from "./SignUp";
+import Eye from "../assets/images/eye.svg";
 
 export const Login = ({ isModal }: { isModal?: boolean }) => {
   const [value, setValue] = useState<{
@@ -17,6 +18,8 @@ export const Login = ({ isModal }: { isModal?: boolean }) => {
   });
 
   const [error, setError] = useState<string | undefined>("");
+  const [inputType, setInputType] =
+    useState<React.HTMLInputTypeAttribute>("password");
 
   const navigate = useNavigate();
   const { showModal } = useModal();
@@ -24,7 +27,11 @@ export const Login = ({ isModal }: { isModal?: boolean }) => {
   const userData = localStorageUtil.getItem("user-data");
 
   const getButtonState = (): ButtonState => {
-    if (isNil(value.userId?.trim()) || isNil(value.password?.trim())) {
+    if (
+      isNil(value.userId) ||
+      isNil(value.password) ||
+      (value.password && value.password?.length < 6)
+    ) {
       return "disabled";
     }
     return "active";
@@ -89,8 +96,16 @@ export const Login = ({ isModal }: { isModal?: boolean }) => {
             setValue((prev) => ({ ...prev, password: e.target.value }));
           }}
           placeholder="Enter your password"
-          type="password"
+          type={inputType}
           value={value.password}
+          trailingElement={<img src={Eye} alt="comments" className="mr-1" />}
+          onTrailingElementPressed={() => {
+            setInputType((prev) => {
+              if (prev === "text") {
+                return "password";
+              } else return "text";
+            });
+          }}
         />
 
         {error && (
