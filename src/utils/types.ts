@@ -24,3 +24,13 @@ export type HomeData = {
   dailyMessage: string;
   postData: PostData[];
 };
+
+export type SendPostData = {
+  id: string;
+  name: string;
+  // Adding this so that on submitting post, picture is visible
+  profilePicture: string;
+  dateAndTime: string;
+  moodIcon: string;
+  content: string;
+};
