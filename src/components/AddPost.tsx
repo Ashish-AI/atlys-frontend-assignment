@@ -53,7 +53,7 @@ export const AddPost = ({
         ...prev,
       ]);
     } else {
-      showModal(<Login />);
+      showModal(<Login isModal={true} />);
     }
   };
 

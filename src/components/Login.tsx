@@ -4,8 +4,10 @@ import Button, { ButtonState } from "./Button";
 import Input from "./Input";
 import localStorageUtil from "../utils/localStorage";
 import { useNavigate } from "react-router-dom";
+import { useModal } from "../Contexts/ModalContext";
+import SignUp from "../pages/Signup";
 
-export const Login = () => {
+export const Login = ({ isModal }: { isModal?: boolean }) => {
   const [value, setValue] = useState<{
     userId: string | undefined;
     password: string | undefined;
@@ -16,8 +18,9 @@ export const Login = () => {
 
   const [error, setError] = useState<string | undefined>("");
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const userData = localStorageUtil.getItem("user-data");
+  const { showModal } = useModal();
 
   const getButtonState = (): ButtonState => {
     if (isNil(value.userId?.trim()) || isNil(value.password?.trim())) {
@@ -40,9 +43,17 @@ export const Login = () => {
       userData.password === value.password
     ) {
       setError("");
-      // navigate("/home");
+      navigate("/home");
     } else {
       setError("Invalid user ID or password.");
+    }
+  };
+
+  const handleClick = () => {
+    if (isModal) {
+      showModal(<SignUp />);
+    } else {
+      navigate("/signup");
     }
   };
 
@@ -89,10 +100,13 @@ export const Login = () => {
           <Button label="Login now" type="submit" state={getButtonState()} />
         </div>
         <div className="mt-3">
-          <a href={"/signup"} className="text-sm text-silver hover:underline">
+          <div
+            onClick={() => handleClick()}
+            className="text-sm text-silver hover:underline"
+          >
             Not registered yet?{" "}
             <span className="text-lightGray">Register →</span>
-          </a>
+          </div>
         </div>
       </form>
     </div>
